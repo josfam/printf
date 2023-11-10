@@ -18,12 +18,12 @@ int _printf(const char *format, ...)
 	charPtr = format;
 
 	/* Naively print every character that is encountered */
-	while(*charPtr != '\0')
+	while (*charPtr != '\0')
 	{
 		_putchar(*charPtr);
 		charCount++;
 		charPtr++;
 	}
 
-	return charCount;
+	return (charCount);
 }
