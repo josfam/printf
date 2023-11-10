@@ -54,3 +54,6 @@ dkms.conf
 # test files
 *main.c
 /tests
+
+# code editor files
+settings.json
