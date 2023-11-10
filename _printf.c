@@ -58,8 +58,7 @@ int print_special(const char *charPtr, va_list args, int *charCount)
 	switch (next_char)
 	{
 		case 'c':
-			_putchar(va_arg(args, int));
-			(*charCount)++;
+			show_char(args, charCount);
 			break;
 		default:
 			_putchar(*charPtr);

@@ -11,4 +11,7 @@ int _printf(const char *format, ...);
 /* Prints a character, based on the directive found after the % sign. */
 int print_special(const char *charPtr, va_list arguments, int *charCount);
 
+/* Shows a character instead of the %c is encountered in a format string. */
+int show_char(va_list args, int *charCount);
+
 #endif
