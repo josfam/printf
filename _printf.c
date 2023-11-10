@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
  *                 % sign.
  * @charPtr: Pointer to the current position in the format string being
  *           investigated.
- * @arguments: The variable arguments list.
+ * @args: The variable arguments list.
  * @charCount: Pointer to the number of characters printed so far.
  * Description: Prints a character, based on the directive found after the
  *              % sign.
