@@ -11,5 +11,19 @@
 */
 int _printf(const char *format, ...)
 {
-	/* TODO */
+	int charCount; /* Characters printed */
+	const char *charPtr;
+
+	charCount = 0;
+	charPtr = format;
+
+	/* Naively print every character that is encountered */
+	while(*charPtr != '\0')
+	{
+		_putchar(*charPtr);
+		charCount++;
+		charPtr++;
+	}
+
+	return charCount;
 }
