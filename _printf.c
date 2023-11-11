@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	int charCount; /* Characters printed */
 	int stepForward; /* How far to move the pointer across the format string */
-	const char *charPtr;
+	const char *charPtr; /* Moves across the characters in format */
 	va_list arguments;
 
 	charCount = 0;
