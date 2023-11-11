@@ -14,4 +14,7 @@ int print_special(const char *charPtr, va_list arguments, int *charCount);
 /* Shows a character instead of the %c is encountered in a format string. */
 int show_char(va_list args, int *charCount);
 
+/* Shows a percent sign instead of the %% encountered in a format string. */
+int show_percent(int *charCount);
+
 #endif
