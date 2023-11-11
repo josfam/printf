@@ -21,4 +21,7 @@ int show_percent(int *charCount);
 /* Shows a string instead of %s when encountered in a format string. */
 int show_string(va_list args, int *charCount);
 
+/* Prints an integer when %d is encountered in a format string */
+int show_int(va_list args, int *charCount);
+
 #endif
