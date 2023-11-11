@@ -62,6 +62,9 @@ int print_special(const char *charPtr, va_list args, int *charCount)
 		case 'c':
 			show_char(args, charCount);
 			break;
+		case 's':
+			show_string(args, charCount);
+			break;
 		case '%':
 			show_percent(charCount);
 			break;

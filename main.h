@@ -1,6 +1,7 @@
 #ifndef _PRINTF_HEADER
 #define _PRINTF_HEADER
 #include <stdarg.h>
+#include <stddef.h>
 
 /* Writes a character to standard output. */
 void _putchar(char ch);
@@ -16,5 +17,8 @@ int show_char(va_list args, int *charCount);
 
 /* Shows a percent sign instead of the %% encountered in a format string. */
 int show_percent(int *charCount);
+
+/* Shows a string instead of %s when encountered in a format string. */
+int show_string(va_list args, int *charCount);
 
 #endif
