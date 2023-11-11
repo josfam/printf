@@ -12,6 +12,7 @@
 int _printf(const char *format, ...)
 {
 	int charCount; /* Characters printed */
+	int stepForward; /* How far to move the pointer across the format string */
 	const char *charPtr;
 	va_list arguments;
 
@@ -31,8 +32,8 @@ int _printf(const char *format, ...)
 		}
 		else /* Print the character based on what's after the % */
 		{
-			print_special(charPtr, arguments, &charCount);
-			charPtr += 2; /* Skip the symbol after the % sign */
+			stepForward = print_special(charPtr, arguments, &charCount);
+			charPtr += stepForward; /* Advance the pointer correctly */
 		}
 	}
 	va_end(arguments);
@@ -49,7 +50,8 @@ int _printf(const char *format, ...)
  * @charCount: Pointer to the number of characters printed so far.
  * Description: Prints a character, based on the directive found after the
  *              % sign.
- * Return: 0 on success.
+ * Return: The number of steps that the pointer that is moving across
+ *         the format string should advance forward.
  */
 int print_special(const char *charPtr, va_list args, int *charCount)
 {
@@ -66,6 +68,7 @@ int print_special(const char *charPtr, va_list args, int *charCount)
 		default:
 			_putchar(*charPtr);
 			(*charCount)++;
+			return (1); /* Do not skip the char after the % sign */
 	}
-	return (0);
+	return (2); /* Skip the char after the % sign */
 }
