@@ -24,10 +24,14 @@ charBuffer *create_buffer()
 void flush_buffer(charBuffer *buffer)
 {
 	char *start;
-	int step;
+	int step, occupied_space;
 
 	start = buffer->chars;
 	step = 0;
+	occupied_space = buffer->bufferPtr - buffer->chars;
+
+	/* output all buffer contents to standard out */
+	write(1, buffer, occupied_space);
 
 	/* fill the buffer with all '0's */
 	while(step <= BUFFER_SIZE)
