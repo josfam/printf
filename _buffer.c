@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * create_buffer - Creates a buffer to be used for printing.
@@ -12,6 +13,21 @@ charBuffer *create_buffer()
 
 	buffer->bufferPtr = buffer->chars; /* setup the pointer to the char array */
 	return (buffer);
+}
+
+/**
+ * add_to_buffer - Appends a character to the buffer.
+ * @ch: The character to append to the buffer.
+ * @buffer: Pointer to the buffer onto which to append the character.
+ * Return: Nothing.
+*/
+void append_to_buffer(char ch, charBuffer *buffer)
+{
+	/* flush the buffer if it is almost full */
+	if (buffer_almost_full(buffer))
+		flush_buffer(buffer);
+
+	buffer->bufferPtr = ch;
 }
 
 /**
