@@ -3,6 +3,17 @@
 #include <stdarg.h>
 #include <stddef.h>
 
+#define BUFFER_SIZE 1024
+/* empty space left before buffer is 'full' and has to be flushed */
+#define THRESHOLD_FOR_FULL 1
+
+/* The buffer struct to be used when printing to standard out. */
+typedef struct charBuffer
+{
+	char chars[BUFFER_SIZE];
+	char *bufferPtr;
+} charBuffer;
+
 /* Writes a character to standard output. */
 void _putchar(char ch);
 
