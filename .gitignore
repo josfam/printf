@@ -52,7 +52,7 @@ Mkfile.old
 dkms.conf
 
 # test files
-*main.c
+*main*.c
 /tests
 
 # code editor files
