@@ -4,8 +4,8 @@
  * _printf - Writes output to stdout, the standard output stream,
  *           according to a format specified in the provided character string.
  * @format: The character string that is composed of zero or more directives.
- * Description: Writes output to stdout, the standard output stream,
- *              according to a format specified in a provided character string.
+ * Description: Writes output to stdout, the standard output stream,according
+ *              to a format specified in a provided character string.
  * Return: The number of characters printed, not including the null byte
  *         used to end strings.
 */
@@ -57,14 +57,15 @@ int _printf(const char *format, ...)
  * Return: The number of steps that the pointer that is moving across
  *         the format string should advance forward.
  */
-int print_special(const char *charPtr, va_list args, int *charCount, charBuffer *buffer)
+int print_special(const char *charPtr, va_list args, int *charCount,
+					charBuffer *buffer)
 {
 	char next_char = *(charPtr + 1); /* char after the % */
 
 	switch (next_char)
 	{
 		case 'b':
-			show_binary(args, charCount);
+			show_binary(args, charCount, buffer);
 			break;
 		case 'c':
 			show_char(args, charCount, buffer);
