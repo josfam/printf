@@ -28,7 +28,7 @@ void append_to_buffer(char ch, charBuffer *buffer)
 	if (buffer_almost_full(buffer))
 		flush_buffer(buffer);
 
-	buffer->bufferPtr = ch;
+	*(buffer->bufferPtr) = ch;
 	(buffer->bufferPtr)++;
 }
 
