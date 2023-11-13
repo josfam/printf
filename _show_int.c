@@ -60,7 +60,15 @@ char *itoa(int value, char *buffer, int base)
 	{
 		int rem = value % base;
 
-		buffer[i++] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
+		if (rem > 9)
+		{
+			buffer[i] = (rem - 10) + 'a';
+		}
+		else
+		{
+			buffer[i] = rem + '0';
+		}
+		i++;
 		value = value / base;
 	}
 	if (isNegative)
