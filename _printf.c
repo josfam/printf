@@ -11,6 +11,7 @@
 */
 int _printf(const char *format, ...)
 {
+	charBuffer *buffer;
 	int charCount; /* Characters printed */
 	int stepForward; /* How far to move the pointer across the format string */
 	const char *charPtr; /* Moves across the characters in format */
@@ -18,6 +19,7 @@ int _printf(const char *format, ...)
 
 	charCount = 0;
 	charPtr = format;
+	buffer = create_buffer();
 
 	va_start(arguments, format);
 
@@ -26,8 +28,7 @@ int _printf(const char *format, ...)
 	{
 		if (*charPtr != '%')
 		{
-			_putchar(*charPtr);
-			charCount++;
+			append_to_buffer(*charPtr, buffer, &charCount);
 			charPtr++;
 		}
 		else /* Print the character based on what's after the % */
@@ -36,7 +37,9 @@ int _printf(const char *format, ...)
 			charPtr += stepForward; /* Advance the pointer correctly */
 		}
 	}
+	flush_buffer(buffer, &charCount); /* Force flush the buffer */
 	va_end(arguments);
+	free_buffer_memory(buffer);
 
 	return (charCount);
 }
