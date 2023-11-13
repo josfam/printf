@@ -28,6 +28,7 @@ void append_to_buffer(char ch, charBuffer *buffer)
 		flush_buffer(buffer);
 
 	buffer->bufferPtr = ch;
+	(buffer->bufferPtr)++;
 }
 
 /**
