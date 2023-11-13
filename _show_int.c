@@ -23,11 +23,49 @@ void reverse(char *str, int len)
 }
 
 /**
- * itoa - converts an integer value to a string
+ * handleNegative - converts a negative value to positive and updates buffer
+ * @value: Pointer to the integer value to be corrected
+ * @isNegative: Pointer to a flag indicating if the number is negative
+ * @buffer: Buffer where the negative sign will be placed if needed
+ * @i: Pointer to the current index in the buffer
+ */
+
+void handleNegative(int *value, bool *isNegative, char *buffer, int *i)
+{
+	if (*value < 0)
+	{
+		*isNegative = true;
+		*value = -*value;
+		buffer[(*i)++] = '-';
+	}
+}
+
+/**
+ * convertToBase - Converts an integer value to a specified base
+ * and updates buffer
+ * @value: The integer to be converted
+ * @buffer: Buffer where the converted value will be stored
+ * @base: Numerical base for conversion
+ * @i: Pointer to the current index in the buffer
+ */
+
+void convertToBase(int value, char *buffer, int base, int *i)
+{
+	do {
+		int rem = value % base;
+
+		buffer[*i] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
+		(*i)++;
+		value /= base;
+	} while (value != 0);
+}
+
+/**
+ * itoa - converts an integer value to a string rep in a given base
  *
  * @value: the integer to be converted
  * @buffer: the buffer where the converted string is stored
- * @base: numerical base
+ * @base: numerical base for conversion (between 2 and 32)
  *
  * Return: pointer to the resulting null-terminated string
  */
@@ -37,48 +75,21 @@ char *itoa(int value, char *buffer, int base)
 	int i = 0;
 	bool isNegative = false;
 
-	if (base < 2 || base > 32)
-	{
-		*buffer = '\0';
-		return (buffer);
-	}
-
-	if (value == 0)
+	if (base < 2 || base > 32 || value == 0)
 	{
 		buffer[i++] = '0';
 		buffer[i] = '\0';
 		return (buffer);
 	}
 
-	if (value < 0 && base == 10)
-	{
-		isNegative = true;
-		value = -value;
-	}
+	/* Handle negative ints for base 10 */
+	if (base == 10)
+		handleNegative(&value, &isNegative, buffer, &i);
 
-	while (value != 0)
-	{
-		int rem = value % base;
-
-		if (rem > 9)
-		{
-			buffer[i] = (rem - 10) + 'a';
-		}
-		else
-		{
-			buffer[i] = rem + '0';
-		}
-		i++;
-		value = value / base;
-	}
-	if (isNegative)
-	{
-		buffer[i++] = '-';
-	}
+	convertToBase(value, buffer, base, &i);
 
 	buffer[i] = '\0';
-
-	reverse(buffer, i);
+	reverse(buffer + (isNegative ? 1 : 0), i - (isNegative ? 1 : 0));
 
 	return (buffer);
 }
@@ -93,7 +104,7 @@ char *itoa(int value, char *buffer, int base)
 int show_int(va_list args, int *charCount)
 {
 	int num = va_arg(args, int);
-	char buffer[12];
+	char buffer[12]; /* buffer size to vary */
 	char *str = itoa(num, buffer, 10);
 
 	while (*str)
