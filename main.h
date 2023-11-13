@@ -32,7 +32,13 @@ int show_int(va_list args, int *charCount);
 /* Reverses a string */
 void reverse(char *str, int len);
 
-/*converts an integer value to a string */
+/* Converts a negative value to positive and updates buffer */
+void handleNegative(int *value, bool *isNegative, char *buffer, int *i);
+
+/* Converts an integer value to a specified base and updates buffer */
+void convertToBase(int value, char *buffer, int base, int *i);
+
+/* converts an integer value to a string */
 char *itoa(int value, char *buffer, int base);
 
-#endif
+#endif /* _PRINTF_HEADER */
