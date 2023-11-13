@@ -51,6 +51,7 @@ int _printf(const char *format, ...)
  *           investigated.
  * @args: The variable arguments list.
  * @charCount: Pointer to the number of characters printed so far.
+ * @buffer: The buffer onto which chars will be appended.
  * Description: Prints a character, based on the directive found after the
  *              % sign.
  * Return: The number of steps that the pointer that is moving across

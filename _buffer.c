@@ -19,6 +19,7 @@ charBuffer *create_buffer()
  * append_to_buffer - Appends a character to the buffer.
  * @ch: The character to append to the buffer.
  * @buffer: Pointer to the buffer onto which to append the character.
+ * @charCount: Pointer to the number of characters printed so far.
  * Description: Appends a character to the buffer.
  * Return: Nothing.
 */
@@ -37,6 +38,7 @@ void append_to_buffer(char ch, charBuffer *buffer, int *charCount)
  *                effectively "resets" the buffer, such that it can accept more
  *                characters.
  * @buffer: The buffer to be flushed.
+ * @charCount: Pointer to the number of characters printed so far.
  * Return: Nothing.
 */
 void flush_buffer(charBuffer *buffer, int *charCount)
