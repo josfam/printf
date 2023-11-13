@@ -7,7 +7,11 @@
 /* empty space left before buffer is 'full' and has to be flushed */
 #define THRESHOLD_FOR_FULL 1
 
-/* The buffer struct to be used when printing to standard out. */
+/**
+ * struct charBuffer - The buffer to be used when printing to standard out.
+ * @chars: The array of chars that will act as the buffer itself.
+ * @bufferPtr: Pointer used to traverse the buffer.
+*/
 typedef struct charBuffer
 {
 	char chars[BUFFER_SIZE];

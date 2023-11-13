@@ -9,16 +9,17 @@
 charBuffer *create_buffer()
 {
 	charBuffer *buffer;
-	buffer = (charBuffer*)malloc(sizeof(charBuffer));
 
+	buffer = (charBuffer *)malloc(sizeof(charBuffer));
 	buffer->bufferPtr = buffer->chars; /* setup the pointer to the char array */
 	return (buffer);
 }
 
 /**
- * add_to_buffer - Appends a character to the buffer.
+ * append_to_buffer - Appends a character to the buffer.
  * @ch: The character to append to the buffer.
  * @buffer: Pointer to the buffer onto which to append the character.
+ * Description: Appends a character to the buffer.
  * Return: Nothing.
 */
 void append_to_buffer(char ch, charBuffer *buffer)
@@ -51,7 +52,7 @@ void flush_buffer(charBuffer *buffer)
 	write(1, buffer, occupied_space);
 
 	/* fill the buffer with all '0's */
-	while(step <= BUFFER_SIZE)
+	while (step <= BUFFER_SIZE)
 	{
 		buffer->chars[step] = '0';
 		start++;
