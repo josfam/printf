@@ -44,10 +44,10 @@ int show_binary(va_list args, int *charCount);
 charBuffer *create_buffer();
 
 /* Appends a character to the buffer. */
-void append_to_buffer(char ch, charBuffer *buffer);
+void append_to_buffer(char ch, charBuffer *buffer, int *charCount);
 
 /* flush_buffer - Writes all the buffer's contents to standard out. */
-void flush_buffer(charBuffer *buffer);
+void flush_buffer(charBuffer *buffer, int *charCount);
 
 /* Returns whether the buffer is almost full. */
 int buffer_almost_full(charBuffer *buffer);
