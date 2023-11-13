@@ -1,15 +1,20 @@
 #include "main.h"
 
 /**
- * Reverses a string 'str' of length 'len'
+ * reverse - Reverses a string 'str' of length 'len'
+ * @str: string to be reversed
+ * @len: length of the string
+ *
  */
 void reverse(char *str, int len)
 {
 	int start = 0;
 	int end = len - 1;
+
 	while (start < end)
 	{
 		char temp = str[start];
+
 		str[start] = str[end];
 		str[end] = temp;
 		start++;
@@ -22,7 +27,7 @@ void reverse(char *str, int len)
  *
  * @value: the integer to be converted
  * @buffer: the buffer where the converted string is stored
- * base: numerical base
+ * @base: numerical base
  *
  * Return: pointer to the resulting null-terminated string
  */
@@ -32,18 +37,17 @@ char *itoa(int value, char *buffer, int base)
 	int i = 0;
 	bool isNegative = false;
 
-	if (base < 2 || base >32)
+	if (base < 2 || base > 32)
 	{
 		*buffer = '\0';
-		return buffer;
+		return (buffer);
 	}
-	
-	if (value == 0)
 
+	if (value == 0)
 	{
 		buffer[i++] = '0';
 		buffer[i] = '\0';
-		return buffer;
+		return (buffer);
 	}
 
 	if (value < 0 && base == 10)
@@ -55,10 +59,10 @@ char *itoa(int value, char *buffer, int base)
 	while (value != 0)
 	{
 		int rem = value % base;
-		buffer[i++] = (rem > 9) ? (rem - 10)+ 'a' : rem + '0';
-		value = value/base;
+
+		buffer[i++] = (rem > 9) ? (rem - 10) + 'a' : rem + '0';
+		value = value / base;
 	}
-	
 	if (isNegative)
 	{
 		buffer[i++] = '-';
