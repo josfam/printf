@@ -2,6 +2,7 @@
 #define _PRINTF_HEADER
 #include <stdarg.h>
 #include <stddef.h>
+#include <stdbool.h>
 
 /* Writes a character to standard output. */
 void _putchar(char ch);
@@ -24,5 +25,14 @@ int show_string(va_list args, int *charCount);
 /* Shows the binary representation of a number *custom specifier, %b, */
 /* that is encountered in a format string. */
 int show_binary(va_list args, int *charCount);
+
+/*Prints an integer when %d or %i is encountered in a format string */
+int show_int(va_list args, int *charCount);
+
+/* Reverses a string */
+void reverse(char *str, int len);
+
+/*converts an integer value to a string */
+char *itoa(int value, char *buffer, int base);
 
 #endif
