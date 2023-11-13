@@ -39,6 +39,9 @@ int show_binary(va_list args, int *charCount);
 /* Creates a buffer to be used for printing. */
 charBuffer *create_buffer();
 
+/* Appends a character to the buffer. */
+void append_to_buffer(char ch, charBuffer *buffer);
+
 /* flush_buffer - Writes all the buffer's contents to standard out. */
 void flush_buffer(charBuffer *buffer);
 
