@@ -11,7 +11,7 @@ int show_string(va_list args, int *charCount)
 {
 	const char *str = va_arg(args, const char *);
 
-	if (str == NULL)
+	if (!str)
 		str = "(null)";
 
 	while (*str)
