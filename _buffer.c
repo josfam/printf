@@ -22,11 +22,11 @@ charBuffer *create_buffer()
  * Description: Appends a character to the buffer.
  * Return: Nothing.
 */
-void append_to_buffer(char ch, charBuffer *buffer)
+void append_to_buffer(char ch, charBuffer *buffer, int *charCount)
 {
 	/* flush the buffer if it is almost full */
 	if (buffer_almost_full(buffer))
-		flush_buffer(buffer);
+		flush_buffer(buffer, charCount);
 
 	*(buffer->bufferPtr) = ch;
 	(buffer->bufferPtr)++;
@@ -39,7 +39,7 @@ void append_to_buffer(char ch, charBuffer *buffer)
  * @buffer: The buffer to be flushed.
  * Return: Nothing.
 */
-void flush_buffer(charBuffer *buffer)
+void flush_buffer(charBuffer *buffer, int *charCount)
 {
 	char *start;
 	int step, occupied_space;
@@ -48,8 +48,9 @@ void flush_buffer(charBuffer *buffer)
 	step = 0;
 	occupied_space = buffer->bufferPtr - buffer->chars;
 
-	/* output all buffer contents to standard out */
+	/* output all buffer contents to standard out, and update the character count */
 	write(1, buffer, occupied_space);
+	*charCount += occupied_space;
 
 	/* fill the buffer with all '0's */
 	while (step <= BUFFER_SIZE)
