@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 		}
 		else /* Print the character based on what's after the % */
 		{
-			stepForward = print_special(charPtr, arguments, &charCount);
+			stepForward = print_special(charPtr, arguments, &charCount, buffer);
 			charPtr += stepForward; /* Advance the pointer correctly */
 		}
 	}
@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
  * Return: The number of steps that the pointer that is moving across
  *         the format string should advance forward.
  */
-int print_special(const char *charPtr, va_list args, int *charCount)
+int print_special(const char *charPtr, va_list args, int *charCount, charBuffer *buffer)
 {
 	char next_char = *(charPtr + 1); /* char after the % */
 
@@ -66,7 +66,7 @@ int print_special(const char *charPtr, va_list args, int *charCount)
 			show_binary(args, charCount);
 			break;
 		case 'c':
-			show_char(args, charCount);
+			show_char(args, charCount, buffer);
 			break;
 		case 's':
 			show_string(args, charCount);

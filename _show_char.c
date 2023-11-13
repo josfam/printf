@@ -7,9 +7,8 @@
  * @charCount: Pointer to the number of characters printed so far.
  * Return: 0 after a successful print.
 */
-int show_char(va_list args, int *charCount)
+int show_char(va_list args, int *charCount, charBuffer *buffer)
 {
-	_putchar(va_arg(args, int));
-	(*charCount)++;
+	append_to_buffer(va_arg(args, int), buffer, charCount);
 	return (0);
 }
