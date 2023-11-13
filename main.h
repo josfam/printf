@@ -36,4 +36,16 @@ int show_string(va_list args, int *charCount);
 /* that is encountered in a format string. */
 int show_binary(va_list args, int *charCount);
 
+/* Creates a buffer to be used for printing. */
+charBuffer *create_buffer();
+
+/* flush_buffer - Writes all the buffer's contents to standard out. */
+void flush_buffer(charBuffer *buffer);
+
+/* Returns whether the buffer is almost full. */
+int buffer_almost_full(charBuffer *buffer);
+
+/* Frees the memory requested by a charBuffer. */
+void free_buffer_memory(charBuffer *buffer);
+
 #endif
