@@ -5,11 +5,11 @@
  *             string.
  * @args: The variable arguments list
  * @charCount: Pointer to the number of characters printed so far.
- * @buffer: The buffer onto which chars will be appended.
  * Return: 0 after a successful print.
 */
-int show_char(va_list args, int *charCount, charBuffer *buffer)
+int show_char(va_list args, int *charCount)
 {
-	append_to_buffer(va_arg(args, int), buffer, charCount);
+	_putchar(va_arg(args, int));
+	(*charCount)++;
 	return (0);
 }
