@@ -73,7 +73,7 @@ int print_special(const char *charPtr, va_list args, int *charCount, charBuffer 
 			show_string(args, charCount);
 			break;
 		case '%':
-			show_percent(charCount);
+			show_percent(charCount, buffer);
 			break;
 		default:
 			_putchar(*charPtr);

@@ -32,7 +32,7 @@ int print_special(const char *charPtr, va_list args, int *charCount,
 int show_char(va_list args, int *charCount, charBuffer *buffer);
 
 /* Shows a percent sign instead of the %% encountered in a format string. */
-int show_percent(int *charCount);
+int show_percent(int *charCount, charBuffer *buffer);
 
 /* Shows a string instead of %s when encountered in a format string. */
 int show_string(va_list args, int *charCount);
