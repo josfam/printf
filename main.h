@@ -41,4 +41,7 @@ void convertToBase(int value, char *buffer, int base, int *i);
 /* converts an integer value to a string */
 char *itoa(int value, char *buffer, int base);
 
+/* Prints a number in a specified base when %u,%o,%x or %X */
+int show_number(va_list args, int *charCount, int base);
+
 #endif /* _PRINTF_HEADER */
