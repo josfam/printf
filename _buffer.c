@@ -11,6 +11,10 @@ charBuffer *create_buffer()
 	charBuffer *buffer;
 
 	buffer = (charBuffer *)malloc(sizeof(charBuffer));
+
+	if (buffer == NULL)
+		return NULL;
+
 	buffer->bufferPtr = buffer->chars; /* setup the pointer to the char array */
 	return (buffer);
 }
