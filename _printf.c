@@ -81,6 +81,8 @@ int print_special(const char *charPtr, va_list args, int *charCount,
 		show_number(args, charCount, 10);
 	else if (next_char == 'o')
 		show_number(args, charCount, 8);
+	else if (next_char == 'R')
+		_show_rot13(args, charCount, buffer);
 	else if (next_char == 'x')
 		show_number(args, charCount, 16);
 	else if (next_char == 'X')
