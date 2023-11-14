@@ -6,7 +6,7 @@
 
 #define BUFFER_SIZE 1024
 /* empty space left before buffer is 'full' and has to be flushed */
-#define THRESHOLD_FOR_FULL 1
+#define THRESHOLD_FOR_FULL 0
 
 /**
  * struct charBuffer - The buffer to be used when printing to standard out.
