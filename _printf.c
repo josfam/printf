@@ -75,8 +75,22 @@ int print_special(const char *charPtr, va_list args, int *charCount)
 			show_percent(charCount);
 			break;
 		case 'd':
+			show_int(args, charCount);
+			break;
 		case 'i':
 			show_int(args, charCount);
+			break;
+		case 'u':
+			show_number(args, charCount, 10);
+			break;
+		case 'o':
+			show_number(args, charCount, 8);
+			break;
+		case 'x':
+			show_numberargs, charCount, 16);
+			break;
+		case 'X':
+			show_number(args, charCount, -16);
 			break;
 		default:
 			_putchar(*charPtr);
