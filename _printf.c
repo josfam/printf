@@ -51,12 +51,14 @@ int _printf(const char *format, ...)
  *           investigated.
  * @args: The variable arguments list.
  * @charCount: Pointer to the number of characters printed so far.
+ * @buffer: Pointer to a buffer onto which characters are appended.
  * Description: Prints a character, based on the directive found after the
  *              % sign.
  * Return: The number of steps that the pointer that is moving across
  *         the format string should advance forward.
  */
-int print_special(const char *charPtr, va_list args, int *charCount)
+int print_special(const char *charPtr, va_list args, int *charCount,
+					charBuffer *buffer)
 {
 	char next_char = *(charPtr + 1); /* char after the % */
 
