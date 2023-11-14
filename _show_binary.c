@@ -22,6 +22,7 @@ int show_binary(va_list args, int *charCount, charBuffer *buffer)
 	if (num == 0 || num > UINT_MAX)
 	{
 		append_to_buffer('0', buffer, charCount);
+		flush_buffer(buffer, charCount);
 		return (0);
 	}
 
