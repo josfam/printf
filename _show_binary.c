@@ -33,7 +33,7 @@ int show_binary(va_list args, int *charCount, charBuffer *buffer)
 		i++;
 	}
 
-	/* print the binary numbers from right to left */
+	/* add binary numbers to buffer, from right to left */
 	for (j = i - 1; j >= 0; j--)
 	{
 		append_to_buffer('0' + binary_nums[j], buffer, charCount);
