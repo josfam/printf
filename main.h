@@ -60,6 +60,12 @@ int show_string(va_list args, int *charCount);
 /* that is encountered in a format string. */
 int show_binary(va_list args, int *charCount, charBuffer *buffer);
 
+/* Shifts a character n steps forward in the alphabet */
+int _shift(char ch, int n);
+
+/* Shows a string, but shifted 13 steps in a the alphabet. */
+int _show_rot13(va_list args, int *charCount, charBuffer *buffer);
+
 /*Prints an integer when %d or %i is encountered in a format string */
 int show_int(va_list args, int *charCount);
 
