@@ -65,42 +65,32 @@ int print_special(const char *charPtr, va_list args, int *charCount,
 {
 	char next_char = *(charPtr + 1); /* char after the % */
 
-	switch (next_char)
+	if (next_char == 'b')
+		show_binary(args, charCount, buffer);
+	else if (next_char == 'c')
+		show_char(args, charCount);
+	else if (next_char == 's')
+		show_string(args, charCount);
+	else if (next_char == '%')
+		show_percent(charCount);
+	else if (next_char == 'd')
+		show_int(args, charCount);
+	else if (next_char == 'i')
+		show_int(args, charCount);
+	else if (next_char == 'u')
+		show_number(args, charCount, 10);
+	else if (next_char == 'o')
+		show_number(args, charCount, 8);
+	else if (next_char == 'x')
+		show_number(args, charCount, 16);
+	else if (next_char == 'X')
+		show_number(args, charCount, -16);
+	else
 	{
-		case 'b':
-			show_binary(args, charCount, buffer);
-			break;
-		case 'c':
-			show_char(args, charCount);
-			break;
-		case 's':
-			show_string(args, charCount);
-			break;
-		case '%':
-			show_percent(charCount);
-			break;
-		case 'd':
-			show_int(args, charCount);
-			break;
-		case 'i':
-			show_int(args, charCount);
-			break;
-		case 'u':
-			show_number(args, charCount, 10);
-			break;
-		case 'o':
-			show_number(args, charCount, 8);
-			break;
-		case 'x':
-			show_number(args, charCount, 16);
-			break;
-		case 'X':
-			show_number(args, charCount, -16);
-			break;
-		default:
-			_putchar(*charPtr);
-			(*charCount)++;
-			return (1); /* Do not skip the char after the % sign */
+		_putchar(*charPtr);
+		(*charCount)++;
+		return (1); /* Do not skip the char after the % sign */
 	}
+
 	return (2); /* Skip the char after the % sign */
 }
