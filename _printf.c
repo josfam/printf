@@ -42,6 +42,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(arguments);
+	free_buffer_memory(buffer);
 
 	return (charCount);
 }
