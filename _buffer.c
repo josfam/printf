@@ -50,7 +50,7 @@ void flush_buffer(charBuffer *buffer, int *charCount)
 	step = 0;
 	occupied_space = buffer->bufferPtr - buffer->chars;
 
-	/* output all buffer contents to standard out, and update the character count */
+	/* flush all buffer contents to standard out, and update character count */
 	write(1, buffer, occupied_space);
 	*charCount += occupied_space;
 
