@@ -37,6 +37,9 @@ void free_buffer_memory(charBuffer *buffer);
 /* Writes a character to standard output. */
 void _putchar(char ch);
 
+/* Returns the length of a string. */
+int _strlen(const char *s);
+
 /* Produces output according to a format */
 int _printf(const char *format, ...);
 
