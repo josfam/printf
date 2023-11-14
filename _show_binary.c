@@ -37,6 +37,8 @@ int show_binary(va_list args, int *charCount, charBuffer *buffer)
 	{
 		append_to_buffer('0' + binary_nums[j], buffer, charCount);
 	}
-	
+
+	free_buffer_memory(buffer);
+
 	return (0);
 }
