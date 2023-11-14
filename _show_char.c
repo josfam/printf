@@ -11,9 +11,8 @@ int show_char(va_list args, int *charCount)
 {
 	int ch = va_arg(args, int);
 
-	if (ch == '\0')
+	if (ch == '\0') /** to handle edge cases where character is null */
 		return (0);
-
 	_putchar(ch);
 	(*charCount)++;
 	return (0);
