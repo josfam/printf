@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- * show_unsigned - Prints a nnumber in a specified base when 
+ * show_number - Prints a number in a specified base when
  * %u, %o, %x or %X is encountered in a format string
- *
  * @args: The variable arguments list
  * @charCount: Pointer to the number of characters printed so far
  * @base: The base to print the number
@@ -13,7 +12,7 @@
 
 int show_number(va_list args, int *charCount, int base)
 {
-	unsigned int num = va_args(args, unsigned_int);
+	unsigned int num = va_arg(args, unsigned int);
 	char buffer[12];
 	char *str = itoa(num, buffer, base);
 
