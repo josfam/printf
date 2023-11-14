@@ -87,7 +87,7 @@ int print_special(const char *charPtr, va_list args, int *charCount)
 			show_number(args, charCount, 8);
 			break;
 		case 'x':
-			show_numberargs, charCount, 16);
+			show_number(args, charCount, 16);
 			break;
 		case 'X':
 			show_number(args, charCount, -16);
