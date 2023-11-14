@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 	va_start(arguments, format);
 
 	if (!buffer || !format)
-		return (0);
+		return (-1);
 
 	/* Print a character, while checking for directives */
 	while (*charPtr != '\0')
