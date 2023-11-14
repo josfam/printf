@@ -67,7 +67,7 @@ int print_special(const char *charPtr, va_list args, int *charCount,
 	switch (next_char)
 	{
 		case 'b':
-			show_binary(args, charCount);
+			show_binary(args, charCount, buffer);
 			break;
 		case 'c':
 			show_char(args, charCount);

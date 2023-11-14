@@ -55,7 +55,7 @@ int show_string(va_list args, int *charCount);
 
 /* Shows the binary representation of a number *custom specifier, %b, */
 /* that is encountered in a format string. */
-int show_binary(va_list args, int *charCount);
+int show_binary(va_list args, int *charCount, charBuffer *buffer);
 
 /*Prints an integer when %d or %i is encountered in a format string */
 int show_int(va_list args, int *charCount);
