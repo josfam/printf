@@ -71,7 +71,7 @@ void flush_buffer(charBuffer *buffer, int *charCount)
 }
 
 /**
- * buffer_almost_full - Returns whether the buffer is almost full.
+ * buffer_is_full - Returns whether the buffer is almost full.
  * @buffer: The buffer to be checked.
  * Return: Whether the buffer is considered full.
 */
