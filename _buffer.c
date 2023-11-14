@@ -30,7 +30,7 @@ charBuffer *create_buffer()
 void append_to_buffer(char ch, charBuffer *buffer, int *charCount)
 {
 	/* flush the buffer if it is almost full */
-	if (buffer_almost_full(buffer))
+	if (buffer_is_full(buffer))
 		flush_buffer(buffer, charCount);
 
 	*(buffer->bufferPtr) = ch;
@@ -75,7 +75,7 @@ void flush_buffer(charBuffer *buffer, int *charCount)
  * @buffer: The buffer to be checked.
  * Return: Whether the buffer is considered full.
 */
-int buffer_almost_full(charBuffer *buffer)
+int buffer_is_full(charBuffer *buffer)
 {
 	int leftOverSpace;
 

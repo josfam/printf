@@ -29,7 +29,7 @@ void append_to_buffer(char ch, charBuffer *buffer, int *charCount);
 void flush_buffer(charBuffer *buffer, int *charCount);
 
 /* Returns whether the buffer is almost full. */
-int buffer_almost_full(charBuffer *buffer);
+int buffer_is_full(charBuffer *buffer);
 
 /* Frees the memory requested by a charBuffer. */
 void free_buffer_memory(charBuffer *buffer);
