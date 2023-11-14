@@ -15,9 +15,11 @@ int _printf(const char *format, ...)
 	int stepForward; /* How far to move the pointer across the format string */
 	const char *charPtr; /* Moves across the characters in format */
 	va_list arguments;
+	charBuffer *buffer;
 
 	charCount = 0;
 	charPtr = format;
+	buffer = create_buffer();
 
 	va_start(arguments, format);
 
@@ -35,7 +37,7 @@ int _printf(const char *format, ...)
 		}
 		else /* Print the character based on what's after the % */
 		{
-			stepForward = print_special(charPtr, arguments, &charCount);
+			stepForward = print_special(charPtr, arguments, &charCount, buffer);
 			charPtr += stepForward; /* Advance the pointer correctly */
 		}
 	}
