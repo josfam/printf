@@ -25,6 +25,10 @@ int _printf(const char *format, ...)
 
 	if (!buffer || !format)
 		return (-1);
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0]  == '%' && format[1] == '\0')
+                return (-1);
 
 	/* Print a character, while checking for directives */
 	while (*charPtr != '\0')
